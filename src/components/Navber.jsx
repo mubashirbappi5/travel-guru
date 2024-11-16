@@ -5,6 +5,7 @@ import logo2 from '../assets/logo.png'
 const Navber = () => {
   const location = useLocation()
   const auth = location.pathname === '/auth'
+  const auth2 = location.pathname === '/auth/register'
   
   
   const links = <>
@@ -42,15 +43,15 @@ const Navber = () => {
     </div>
     <Link to={'/'} className=" w-28 text-white ">
     {
-      auth?<img src={logo2} alt="" />: <img src={logo} alt="" />
+      auth2 || auth?<img src={logo2} alt="" />: <img src={logo} alt="" />
     }
       
     </Link>
   </div>
  
-  <div className={` hidden lg:flex ${auth?'text-black':'text-white'} gap-40`}>
+  <div className={` hidden lg:flex ${auth2 || auth?'text-black':'text-white'} gap-40`}>
   {
-    auth?'':<div>
+   auth2 || auth?'':<div>
     <input type="text" placeholder='Search your Destination...' className=' px-3 py-1 text-white border rounded-md bg-[#FFFFFF33]  outline-0 placeholder:text-white text-sm' />
  </div>
   }
